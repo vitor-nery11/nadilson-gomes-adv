@@ -1,0 +1,36 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente dourado elegante -->
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9D46A" />
+      <stop offset="40%" stop-color="#D4AF37" />
+      <stop offset="80%" stop-color="#AA8011" />
+      <stop offset="100%" stop-color="#664D00" />
+    </linearGradient>
+
+    <!-- Máscara para cortar o G onde a diagonal do N passa -->
+    <mask id="g-cut">
+      <rect width="120" height="120" fill="white" />
+      <!-- Linha diagonal simulando o traço do N -->
+      <line x1="38" y1="35" x2="82" y2="95" stroke="black" stroke-width="10" />
+    </mask>
+
+    <!-- Máscara para desenhar SOMENTE a diagonal do N por cima do G -->
+    <mask id="n-diag">
+      <rect width="120" height="120" fill="black" />
+      <line x1="38" y1="35" x2="82" y2="95" stroke="white" stroke-width="14" />
+    </mask>
+  </defs>
+
+  <!-- Grupo com as letras clássicas -->
+  <g font-family="'Times New Roman', Georgia, serif" font-weight="normal">
+    <!-- N no fundo -->
+    <text x="20" y="95" font-size="85" fill="url(#gold)">N</text>
+    
+    <!-- G no meio (Cortado pela diagonal do N) -->
+    <text x="45" y="103" font-size="95" fill="url(#gold)" mask="url(#g-cut)">G</text>
+    
+    <!-- N no topo (Apenas a diagonal visível) -->
+    <text x="20" y="95" font-size="85" fill="url(#gold)" mask="url(#n-diag)">N</text>
+  </g>
+</svg>
